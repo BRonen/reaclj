@@ -9,8 +9,7 @@
                 "wadawd"
                 (str counter)
                 (fn [_] {:tag "p"
-                         :on-click (fn [] (println "wasdwasd" @state)
-                                     (setState {:name examplename :counter (+ counter 1)} setState))
+                         :on-click (fn [] (setState {:name examplename :counter (+ counter 1)} setState))
                          :children [examplename]})]}))
 
 (defn parseTextNode
@@ -40,8 +39,7 @@
                    (.removeChild target @elref)
                    (reset! state newState)
                    (reset! elref (parseNode el state newSetState))
-                   (.appendChild target @elref))]
-    
+                   (.appendChild target @elref))] 
     (reset! elref (parseNode el state setState))
     (.appendChild target @elref)))
 

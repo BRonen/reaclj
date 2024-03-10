@@ -1,0 +1,13 @@
+{
+	"name": "reaclj",
+	"scripts": {
+		"ancient": "clojure -Sdeps '{:deps {com.github.liquidz/antq {:mvn/version \"RELEASE\"}}}' -m antq.core",
+		"watch": "shadow-cljs watch app browser-test karma-test",
+		"release": "shadow-cljs release app",
+		"build-report": "shadow-cljs run shadow.cljs.build-report app target/build-report.html",
+		"test": "shadow-cljs compile test"
+	},
+	"devDependencies": {
+		"shadow-cljs": "2.19.0"
+	}
+}

@@ -1,0 +1,7 @@
+services:
+  app:
+    build: .
+    volumes:
+      - ${PWD}:/home/app/
+    ports:
+      - "8080:8080"

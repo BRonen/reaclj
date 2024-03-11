@@ -1,6 +1,7 @@
-(ns bronen.reaclj-spec
-  {:dev/always true}
-  (:require [cljs.test :refer (deftest is)]))
+(ns bronen.reaclj-spec)
 
-(deftest a-failing-test
-  (is (= 1 0)))
+(js/test "select filter"
+         (fn []
+           (-> (js/expect 2)
+               (.-not)
+               (.toBe 1))))

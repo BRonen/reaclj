@@ -1,12 +1,7 @@
-{:nrepl {:port 8777}
- :source-paths ["src" "test"]
-
+{:source-paths ["src" "test"]
  :dependencies [[binaryage/devtools "1.0.6"]]
-
- :dev-http
- {8280 "resources/public"
-  8290 "target"}
-
+ :dev-http {8280 "resources/public"
+            8290 "target"}
  :builds
  {:app
   {:target :browser
@@ -14,8 +9,7 @@
    :asset-path "/_js/compiled"
    :modules {:app {:init-fn bronen.reaclj/init}}}
   :test
-  {:target    :node-test
-   :output-to "target/node-tests.js"
+  {:target    :npm-module
+   :output-dir "target/node_spec"
    :ns-regexp "-spec$"
-   :modules {:app {:init-fn bronen.reaclj-test/init}}
-   :autorun   true}}}
+   :modules {:app {:init-fn bronen.reaclj-test/init}}}}}

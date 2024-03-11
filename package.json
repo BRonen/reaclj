@@ -3,6 +3,7 @@
 	"scripts": {
 		"ancient": "clojure -Sdeps '{:deps {com.github.liquidz/antq {:mvn/version \"RELEASE\"}}}' -m antq.core",
 		"watch": "shadow-cljs watch app test",
+		"build": "shadow-cljs compile app test",
 		"release": "shadow-cljs release app",
 		"build-report": "shadow-cljs run shadow.cljs.build-report app target/build-report.html",
 		"test:watch": "jest --watchAll",

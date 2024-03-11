@@ -19,6 +19,8 @@ jobs:
         node-version: v18.19.x
         cache: npm
     - name: Install dependencies
-      run: npm i
+      run: npm ii
+    - name: Build project
+      run: npm run build
     - name: Run tests
       run: npm run test

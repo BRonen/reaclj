@@ -7,7 +7,7 @@
   {:target :browser
    :output-dir "resources/public/_js/compiled"
    :asset-path "/_js/compiled"
-   :modules {:app {:init-fn bronen.reaclj/init}}}
+   :modules {:app {:init-fn bronen.example/init}}}
   :test
   {:target    :npm-module
    :output-dir "target/node_spec"

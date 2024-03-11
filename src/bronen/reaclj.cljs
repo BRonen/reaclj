@@ -1,17 +1,5 @@
 (ns bronen.reaclj)
 
-(defn helloworldComponent
-  [state setState]
-  (let [examplename (:name @state)
-        counter (:counter @state)]
-    {:tag "p"
-     :children ["wasdwasd"
-                "wadawd"
-                (str counter)
-                (fn [_] {:tag "p"
-                         :on-click (fn [] (setState {:name examplename :counter (+ counter 1)} setState))
-                         :children [examplename]})]}))
-
 (defn parseTextNode
   "Parses raw text into text content"
   [node]
@@ -27,7 +15,9 @@
         parseEl #(if (string? %) (parseTextNode %) (parseNode % state setState))]
     (mapv #(.appendChild el (parseEl %)) (:children node))
     (when (:on-click node)
-      (-> el (.-onclick) (set! (:on-click node))))
+      (-> el
+          (.-onclick)
+          (set! (:on-click node))))
     el))
 
 (defn renderDOM
@@ -42,11 +32,3 @@
                    (.appendChild target @elref))] 
     (reset! elref (parseNode el state setState))
     (.appendChild target @elref)))
-
-(defn ^:export init
-  []
-  (let [state {:name "initial" :counter 0}]
-    (renderDOM
-     (js/document.getElementById "root")
-     helloworldComponent
-     state)))
